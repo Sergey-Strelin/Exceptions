@@ -1,0 +1,20 @@
+package Data;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+
+public class WriterToFile {
+
+    public void writeToFile(String str, String path) {
+        File file = new File(path);
+        try (FileWriter fw = new FileWriter(file, StandardCharsets.UTF_8, true);) {
+            fw.write(str);
+            fw.append('\n');
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
